@@ -41,7 +41,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 1. start [vueserve](https://github.com/willsofts/vueserve) project 
     goto https://github.com/willsofts/vueserve
 2. api try out, this is supported api that you have created ex. \
-    curl -X POST http://localhost:8080/api/sfte012/list
+    curl -X POST http://localhost:8080/api/sfte012/retrieve
 
 This vue application using `sfte012` api to manipulate transaction. \
 In development mode you can setting environment before start up project
