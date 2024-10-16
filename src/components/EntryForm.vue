@@ -107,7 +107,7 @@
 	</div>
   <div class="row row-height">
     <div id="fs_controlbuttonfooterlayer" class="col-md-12 pull-right text-right">
-      <button class="btn btn-dark btn-sm" @click="updateClick"><em class="fa fa-save fa-btn-icon"></em>{{ labels.update_button }}</button>
+      <button ref="updatebutton" id="updatebutton" class="btn btn-dark btn-sm" @click="updateClick"><em class="fa fa-save fa-btn-icon"></em>{{ labels.update_button }}</button>
     </div>
   </div>
 </template>
@@ -120,7 +120,7 @@ import { ref, computed, watch } from 'vue';
 import { useVuelidate } from '@vuelidate/core';
 import { required, helpers } from '@vuelidate/validators';
 import $ from "jquery";
-import { DEFAULT_CONTENT_TYPE, getApiUrl }  from '@willsofts/will-app';
+import { DEFAULT_CONTENT_TYPE, getApiUrl, disableControls }  from '@willsofts/will-app';
 import { startWaiting, stopWaiting, submitFailure, detectErrorResponse }  from '@willsofts/will-app';
 import { confirmUpdate, successbox, serializeParameters } from '@willsofts/will-app';
 
@@ -188,6 +188,7 @@ export default {
     },
     async updateClick() {
       console.log("click: update");
+      disableControls($("#updatebutton"));
       let valid = await this.validateForm();
       if(!valid) return;
       this.startUpdateRecord();

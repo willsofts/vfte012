@@ -2,7 +2,7 @@
 <template>
   <div id="fswaitlayer" class="fa fa-spinner fa-spin"></div>
   <div class="pt-page pt-page-current pt-page-controller search-pager">
-    <PageHeader ref="pageHeader" :labels="labels" pid="vfte012" version="1.0.0" showLanguage="true" @language-changed="changeLanguage" />
+    <PageHeader ref="pageHeader" :labels="labels" pid="vfte012" version="1.0.0" showLanguage="true" @language-changed="changeLanguage" :multiLanguages="multiLanguages" />
     <div id="entrylayer" class="entry-layer">
       <div id="entrylayerarea" class="portal-area sub-entry-layer">
         <EntryForm ref="entryForm" :labels="labels" @data-updated="dataUpdated" />
@@ -17,7 +17,7 @@
 import { ref } from 'vue';
 import { PageHeader } from '@willsofts/will-control';
 import EntryForm from '@/components/EntryForm.vue';
-import { getLabelModel } from "@willsofts/will-app";
+import { getLabelModel, getMultiLanguagesModel } from "@willsofts/will-app";
 import { getDefaultLanguage, setDefaultLanguage } from "@willsofts/will-app";
 import { startApplication } from "@willsofts/will-app";
 
@@ -26,14 +26,16 @@ export default {
     PageHeader, EntryForm
   },
   setup() {
+    const multiLanguages = ref(getMultiLanguagesModel());
     let labels = ref(getLabelModel());
-    return { labels};
+    return { labels, multiLanguages };
   },
   mounted() {
     console.log("App: mounted ...");
     this.$nextTick(() => {
       //ensure ui completed then invoke startApplication 
       startApplication("vfte012",(data) => {
+        this.multiLanguages = getMultiLanguagesModel();
         this.messagingHandler(data);
         this.$refs.pageHeader.changeLanguage(getDefaultLanguage());
       });
