@@ -124,6 +124,7 @@ import { DEFAULT_CONTENT_TYPE, getApiUrl, disableControls }  from '@willsofts/wi
 import { startWaiting, stopWaiting, submitFailure, detectErrorResponse }  from '@willsofts/will-app';
 import { confirmUpdate, successbox, serializeParameters } from '@willsofts/will-app';
 
+const APP_URL = "/api/sfte012";
 const defaultData = {
   mailserver: "",
   mailport: "",
@@ -223,7 +224,7 @@ export default {
         let formdata = serializeParameters(jsondata,dataRecord);
         startWaiting();
         $.ajax({
-          url: getApiUrl()+"/api/sfte012/update",
+          url: getApiUrl()+APP_URL+"/update",
           data: formdata.jsondata,
           headers : formdata.headers,
           type: "POST",
@@ -247,7 +248,7 @@ export default {
       let formdata = serializeParameters(jsondata,dataKeys || {});
       startWaiting();
       $.ajax({
-        url: getApiUrl()+"/api/sfte012/retrieve",
+        url: getApiUrl()+APP_URL+"/retrieve",
         data: formdata.jsondata,
         headers : formdata.headers,
         type: "POST",
