@@ -5,6 +5,7 @@
       <label for="mailserver" id="mailserver_label" class="control-label">{{ labels.mailserver_label }}</label>
       <div class="input-group has-validation" :class="{'has-error': v$.mailserver.$error}">
         <input type="text" ref="mailserver" id="mailserver" name="mailserver" class="form-control input-md" v-model="localData.mailserver" maxlength="100" />
+        <label class="required">*</label>
       </div>
       <span v-if="v$.mailserver.$error" class="has-error">{{ v$.mailserver.$errors[0].$message }}</span>
     </div>
@@ -14,6 +15,7 @@
       <label for="mailport" id="mailport_label" class="control-label">{{ labels.mailport_label }}</label>
       <div class="input-group has-validation" :class="{'has-error': v$.mailport.$error}">
         <input type="text" ref="mailport" id="mailport" name="mailport" class="form-control input-md" v-model="localData.mailport" maxlength="10" />
+        <label class="required">*</label>
       </div>
       <span v-if="v$.mailport.$error" class="has-error">{{ v$.mailport.$errors[0].$message }}</span>
 		</div>
@@ -23,6 +25,7 @@
       <label for="mailuser" id="mailuser_label" class="control-label">{{ labels.mailuser_label }}</label>
       <div class="input-group has-validation" :class="{'has-error': v$.mailuser.$error}">
         <input type="text" ref="mailuser" id="mailuser" name="mailuser" class="form-control input-md" v-model="localData.mailuser" maxlength="30" />
+        <label class="required">*</label>
       </div>
       <span v-if="v$.mailuser.$error" class="has-error">{{ v$.mailuser.$errors[0].$message }}</span>
 		</div>
@@ -32,6 +35,7 @@
       <label for="mailpassword" id="mailpassword_label" class="control-label">{{ labels.mailpassword_label }}</label>
       <div class="input-group has-validation" :class="{'has-error': v$.mailpassword.$error}">
         <input type="text" ref="mailpassword" id="mailpassword" name="mailpassword" class="form-control input-md" v-model="localData.mailpassword" maxlength="30" />
+        <label class="required">*</label>
       </div>
       <span v-if="v$.mailpassword.$error" class="has-error">{{ v$.mailpassword.$errors[0].$message }}</span>
 		</div>
@@ -41,6 +45,7 @@
       <label for="mailfrom" id="mailfrom_label" class="control-label">{{ labels.mailfrom_label }}</label>
       <div class="input-group has-validation" :class="{'has-error': v$.mailfrom.$error}">
         <input type="text" ref="mailfrom" id="mailfrom" name="mailfrom" class="form-control input-md" v-model="localData.mailfrom" maxlength="100" />
+        <label class="required">*</label>
       </div>
       <span v-if="v$.mailfrom.$error" class="has-error">{{ v$.mailfrom.$errors[0].$message }}</span>
 		</div>
@@ -50,6 +55,7 @@
       <label for="mailtitle" id="mailtitle_label" class="control-label">{{ labels.mailtitle_label }}</label>
       <div class="input-group has-validation" :class="{'has-error': v$.mailtitle.$error}">
         <input type="text" ref="mailtitle" id="mailtitle" name="mailtitle" class="form-control input-md irequired" v-model="localData.mailtitle" maxlength="100" />
+        <label class="required">*</label>
       </div>
       <span v-if="v$.mailtitle.$error" class="has-error">{{ v$.mailtitle.$errors[0].$message }}</span>
 		</div>
@@ -61,6 +67,7 @@
       <label for="mailto" id="mailto_label" class="control-label">{{ labels.mailto_label }}</label>
       <div class="input-group has-validation" :class="{'has-error': v$.mailto.$error}">
         <input type="text" ref="mailto" id="mailto" name="mailto" class="form-control input-md" v-model="localData.mailto" maxlength="100" />
+        <label class="required">*</label>
       </div>
       <span v-if="v$.mailto.$error" class="has-error">{{ v$.mailto.$errors[0].$message }}</span>
 		</div>
@@ -81,8 +88,51 @@
       <label for="factorissuer" id="factorissuer_label" class="control-label">{{ labels.factorissuer_label }}</label>
       <div class="input-group has-validation" :class="{'has-error': v$.factorissuer.$error}">
         <input type="text" ref="factorissuer" id="factorissuer" name="factorissuer" class="form-control input-md" v-model="localData.factorissuer" maxlength="100" />
+        <label class="required">*</label>
       </div>
       <span v-if="v$.factorissuer.$error" class="has-error">{{ v$.factorissuer.$errors[0].$message }}</span>
+		</div>
+	</div>
+
+	<table  class="partition-table"><tr><td class="partition-head-column">{{ labels.s3setting_label }}</td><td class="partition-label-column"><a href="javascript:void(0);" @click="toggleCollapseExpand($event)" class="pull-right part-linker" tabIndex="-1"><i class="fa fa-chevron-circle-up fa-partition-toggle"></i></a></td></tr></table>
+	<div class="row row-height">
+		<div class="col-height col-md-10">
+      <label for="accesskey" id="accesskey_label" class="control-label">{{ labels.accesskey_label }}</label>
+      <div class="input-group has-validation" :class="{'has-error': v$.accesskey.$error}">
+        <input type="text" ref="accesskey" id="accesskey" name="accesskey" class="form-control input-md" v-model="localData.accesskey" maxlength="250" />
+        <label class="required">*</label>
+      </div>
+      <span v-if="v$.accesskey.$error" class="has-error">{{ v$.accesskey.$errors[0].$message }}</span>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-height col-md-10">
+      <label for="secretkey" id="secretkey_label" class="control-label">{{ labels.secretkey_label }}</label>
+      <div class="input-group has-validation" :class="{'has-error': v$.secretkey.$error}">
+        <input type="text" ref="secretkey" id="secretkey" name="secretkey" class="form-control input-md" v-model="localData.secretkey" maxlength="250" />
+        <label class="required">*</label>
+      </div>
+      <span v-if="v$.secretkey.$error" class="has-error">{{ v$.secretkey.$errors[0].$message }}</span>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-height col-md-5">
+      <label for="region" id="region_label" class="control-label">{{ labels.region_label }}</label>
+      <div class="input-group has-validation" :class="{'has-error': v$.region.$error}">
+        <input type="text" ref="region" id="region" name="region" class="form-control input-md" v-model="localData.region" maxlength="50" />
+        <label class="required">*</label>
+      </div>
+      <span v-if="v$.region.$error" class="has-error">{{ v$.region.$errors[0].$message }}</span>
+		</div>
+	</div>
+	<div class="row row-height">
+		<div class="col-height col-md-5">
+      <label for="bucket" id="bucket_label" class="control-label">{{ labels.bucket_label }}</label>
+      <div class="input-group has-validation" :class="{'has-error': v$.bucket.$error}">
+        <input type="text" ref="bucket" id="bucket" name="bucket" class="form-control input-md" v-model="localData.bucket" maxlength="50" />
+        <label class="required">*</label>
+      </div>
+      <span v-if="v$.bucket.$error" class="has-error">{{ v$.bucket.$errors[0].$message }}</span>
 		</div>
 	</div>
 
@@ -92,6 +142,7 @@
       <label for="approveurl" id="approveurl_label" class="control-label">{{ labels.approveurl_label }}</label>
       <div class="input-group has-validation" :class="{'has-error': v$.approveurl.$error}">
         <input type="text" ref="approveurl" id="approveurl" name="approveurl" class="form-control input-md" v-model="localData.approveurl" maxlength="150" />
+        <label class="required">*</label>
       </div>
       <span v-if="v$.approveurl.$error" class="has-error">{{ v$.approveurl.$errors[0].$message }}</span>
 		</div>
@@ -101,6 +152,7 @@
       <label for="activateurl" id="activateurl_label" class="control-label">{{ labels.activateurl_label }}</label>
       <div class="input-group has-validation" :class="{'has-error': v$.activateurl.$error}">
         <input type="text" ref="activateurl" id="activateurl" name="activateurl" class="form-control input-md" v-model="localData.activateurl" maxlength="150" />
+        <label class="required">*</label>
       </div>
       <span v-if="v$.activateurl.$error" class="has-error">{{ v$.activateurl.$errors[0].$message }}</span>
 		</div>
@@ -137,6 +189,10 @@ const defaultData = {
   factorissuer: "",
   approveurl: "",
   activateurl: "",
+  accesskey: "",
+  secretkey: "",
+  region: "",
+  bucket: "",
 };
 
 export default {
@@ -164,6 +220,10 @@ export default {
         factorissuer: { required: requiredMessage() },
         approveurl: { required: requiredMessage() },
         activateurl: { required: requiredMessage() },
+        accesskey: { required: requiredMessage() },
+        secretkey: { required: requiredMessage() },
+        region: { required: requiredMessage() },
+        bucket: { required: requiredMessage() },
       } 
     });
     const v$ = useVuelidate(validateRules, localData, { $lazy: true, $autoDirty: true });
