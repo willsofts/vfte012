@@ -98,41 +98,33 @@
 	<div class="row row-height">
 		<div class="col-height col-md-10">
       <label for="accesskey" id="accesskey_label" class="control-label">{{ labels.accesskey_label }}</label>
-      <div class="input-group has-validation" :class="{'has-error': v$.accesskey.$error}">
+      <div class="input-group">
         <input type="text" ref="accesskey" id="accesskey" name="accesskey" class="form-control input-md" v-model="localData.accesskey" maxlength="250" />
-        <label class="required">*</label>
       </div>
-      <span v-if="v$.accesskey.$error" class="has-error">{{ v$.accesskey.$errors[0].$message }}</span>
 		</div>
 	</div>
 	<div class="row row-height">
 		<div class="col-height col-md-10">
       <label for="secretkey" id="secretkey_label" class="control-label">{{ labels.secretkey_label }}</label>
-      <div class="input-group has-validation" :class="{'has-error': v$.secretkey.$error}">
+      <div class="input-group">
         <input type="text" ref="secretkey" id="secretkey" name="secretkey" class="form-control input-md" v-model="localData.secretkey" maxlength="250" />
-        <label class="required">*</label>
       </div>
-      <span v-if="v$.secretkey.$error" class="has-error">{{ v$.secretkey.$errors[0].$message }}</span>
 		</div>
 	</div>
 	<div class="row row-height">
 		<div class="col-height col-md-5">
       <label for="region" id="region_label" class="control-label">{{ labels.region_label }}</label>
-      <div class="input-group has-validation" :class="{'has-error': v$.region.$error}">
+      <div class="input-group">
         <input type="text" ref="region" id="region" name="region" class="form-control input-md" v-model="localData.region" maxlength="50" />
-        <label class="required">*</label>
       </div>
-      <span v-if="v$.region.$error" class="has-error">{{ v$.region.$errors[0].$message }}</span>
 		</div>
 	</div>
 	<div class="row row-height">
 		<div class="col-height col-md-5">
       <label for="bucket" id="bucket_label" class="control-label">{{ labels.bucket_label }}</label>
-      <div class="input-group has-validation" :class="{'has-error': v$.bucket.$error}">
+      <div class="input-group">
         <input type="text" ref="bucket" id="bucket" name="bucket" class="form-control input-md" v-model="localData.bucket" maxlength="50" />
-        <label class="required">*</label>
       </div>
-      <span v-if="v$.bucket.$error" class="has-error">{{ v$.bucket.$errors[0].$message }}</span>
 		</div>
 	</div>
 
@@ -220,10 +212,6 @@ export default {
         factorissuer: { required: requiredMessage() },
         approveurl: { required: requiredMessage() },
         activateurl: { required: requiredMessage() },
-        accesskey: { required: requiredMessage() },
-        secretkey: { required: requiredMessage() },
-        region: { required: requiredMessage() },
-        bucket: { required: requiredMessage() },
       } 
     });
     const v$ = useVuelidate(validateRules, localData, { $lazy: true, $autoDirty: true });
