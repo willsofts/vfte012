@@ -2,7 +2,7 @@
 <template>
   <div id="fswaitlayer" class="fa fa-spinner fa-spin"></div>
   <div class="pt-page pt-page-current pt-page-controller search-pager">
-    <PageHeader ref="pageHeader" :labels="labels" pid="vfte012" version="1.0.0" showLanguage="true" @language-changed="changeLanguage" :multiLanguages="multiLanguages" />
+    <PageHeader ref="pageHeader" :labels="labels" pid="vfte012" version="1.0.0" showLanguage="true" @language-changed="changeLanguage" :multiLanguages="multiLanguages" :build="buildVersion" />
     <div id="entrylayer" class="entry-layer">
       <div id="entrylayerarea" class="portal-area sub-entry-layer">
         <EntryForm ref="entryForm" :labels="labels" @data-updated="dataUpdated" />
@@ -21,6 +21,7 @@ import { getLabelModel, getMultiLanguagesModel } from "@willsofts/will-app";
 import { getDefaultLanguage, setDefaultLanguage } from "@willsofts/will-app";
 import { startApplication } from "@willsofts/will-app";
 
+const buildVersion = process.env.VUE_APP_BUILD_DATETIME;
 export default {
   components: {
     PageHeader, EntryForm
@@ -28,7 +29,7 @@ export default {
   setup() {
     const multiLanguages = ref(getMultiLanguagesModel());
     let labels = ref(getLabelModel());
-    return { labels, multiLanguages };
+    return { buildVersion, labels, multiLanguages };
   },
   mounted() {
     console.log("App: mounted ...");
