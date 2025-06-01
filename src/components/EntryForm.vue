@@ -19,6 +19,10 @@
       </div>
       <span v-if="v$.mailport.$error" class="has-error">{{ v$.mailport.$errors[0].$message }}</span>
 		</div>
+    <div class="col-height col-md-3 form-check" id="mailsecurelayer">
+        <input type="checkbox" class="form-control input-md form-check-input" id="mailsecure" name="mailsecure" :true-value="true" :false-value="false" v-model="localData.mailsecure" />
+        <label class="lclass control-label form-check-label" id="mailsecure_label" for="mailsecure">{{ labels.mailsecure_label }}</label>
+    </div>
 	</div>
 	<div class="row row-height">
 		<div class="col-height col-md-10">
@@ -158,6 +162,7 @@
 <style>
 #fs_controlbuttonfooterlayer { margin-right: 20px; margin-bottom:5px; margin-top: 10px; }
 #fs_controlbuttonfooterlayer button { margin-right: 5px; }
+#mailsecurelayer { margin-left: 35px; margin-top: 35px; }
 </style>
 <script>
 import { ref, computed, watch } from 'vue';
@@ -177,6 +182,7 @@ const defaultData = {
   mailfrom: "",
   mailtitle: "",
   mailto: "",
+  mailsecure: "true",
   factorverify: "true",
   factorissuer: "",
   approveurl: "",
