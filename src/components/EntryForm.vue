@@ -1,5 +1,5 @@
 <template>
-	<table  class="partition-table"><tr><td class="partition-head-column"><label id="mailinfo_label" class="control-label">{{ labels.mailinfo_label }}</label></td><td class="partition-label-column"><a href="javascript:void(0);" @click.prevent="toggleCollapseExpand($event)" class="pull-right part-linker" tabIndex="-1"><i class="fa fa-chevron-circle-up fa-partition-toggle"></i></a></td></tr></table>
+	<table  class="partition-table"><tr><td class="partition-head-column"><label id="mailinfo_label" class="control-label partition-label">{{ labels.mailinfo_label }}</label></td><td class="partition-label-column"><a href="javascript:void(0);" @click.prevent="toggleCollapseExpand($event)" class="pull-right part-linker" tabIndex="-1"><i class="fa fa-chevron-circle-up fa-partition-toggle"></i></a></td></tr></table>
 	<div class="row row-height">
 		<div class="col-height col-md-5">
       <label for="mailserver" id="mailserver_label" class="control-label">{{ labels.mailserver_label }}</label>
@@ -65,7 +65,7 @@
 		</div>
 	</div>
 
-	<table  class="partition-table"><tr><td class="partition-head-column">{{ labels.errormail_label }}</td><td class="partition-label-column"><a href="javascript:void(0);" @click="toggleCollapseExpand($event)" class="pull-right part-linker" tabIndex="-1"><i class="fa fa-chevron-circle-up fa-partition-toggle"></i></a></td></tr></table>
+	<table  class="partition-table"><tr><td class="partition-head-column"><label class="control-label partition-label">{{ labels.errormail_label }}</label></td><td class="partition-label-column"><a href="javascript:void(0);" @click="toggleCollapseExpand($event)" class="pull-right part-linker" tabIndex="-1"><i class="fa fa-chevron-circle-up fa-partition-toggle"></i></a></td></tr></table>
 	<div class="row row-height">
 		<div class="col-height col-md-10">
       <label for="mailto" id="mailto_label" class="control-label">{{ labels.mailto_label }}</label>
@@ -77,7 +77,7 @@
 		</div>
 	</div>
 
-	<table  class="partition-table"><tr><td class="partition-head-column">{{ labels.factorsetting_label }}</td><td class="partition-label-column"><a href="javascript:void(0);" @click="toggleCollapseExpand($event)" class="pull-right part-linker" tabIndex="-1"><i class="fa fa-chevron-circle-up fa-partition-toggle"></i></a></td></tr></table>
+	<table  class="partition-table"><tr><td class="partition-head-column"><label class="control-label partition-label">{{ labels.factorsetting_label }}</label></td><td class="partition-label-column"><a href="javascript:void(0);" @click="toggleCollapseExpand($event)" class="pull-right part-linker" tabIndex="-1"><i class="fa fa-chevron-circle-up fa-partition-toggle"></i></a></td></tr></table>
 	<div class="row row-height">
     <div class="col-height col-md-10 radio my-radio form-check">
       <table><tr><td>
@@ -98,7 +98,7 @@
 		</div>
 	</div>
 
-	<table  class="partition-table"><tr><td class="partition-head-column">{{ labels.s3setting_label }}</td><td class="partition-label-column"><a href="javascript:void(0);" @click="toggleCollapseExpand($event)" class="pull-right part-linker" tabIndex="-1"><i class="fa fa-chevron-circle-up fa-partition-toggle"></i></a></td></tr></table>
+	<table  class="partition-table"><tr><td class="partition-head-column"><label class="control-label partition-label">{{ labels.s3setting_label }}</label></td><td class="partition-label-column"><a href="javascript:void(0);" @click="toggleCollapseExpand($event)" class="pull-right part-linker" tabIndex="-1"><i class="fa fa-chevron-circle-up fa-partition-toggle"></i></a></td></tr></table>
 	<div class="row row-height">
 		<div class="col-height col-md-10">
       <label for="accesskey" id="accesskey_label" class="control-label">{{ labels.accesskey_label }}</label>
@@ -132,7 +132,7 @@
 		</div>
 	</div>
 
-	<table  class="partition-table"><tr><td class="partition-head-column">{{ labels.othersetting_label }}</td><td class="partition-label-column"><a href="javascript:void(0);" @click="toggleCollapseExpand($event)" class="pull-right part-linker" tabIndex="-1"><i class="fa fa-chevron-circle-up fa-partition-toggle"></i></a></td></tr></table>
+	<table  class="partition-table"><tr><td class="partition-head-column"><label class="control-label partition-label">{{ labels.othersetting_label }}</label></td><td class="partition-label-column"><a href="javascript:void(0);" @click="toggleCollapseExpand($event)" class="pull-right part-linker" tabIndex="-1"><i class="fa fa-chevron-circle-up fa-partition-toggle"></i></a></td></tr></table>
 	<div class="row row-height">
 		<div class="col-height col-md-10">
       <label for="approveurl" id="approveurl_label" class="control-label">{{ labels.approveurl_label }}</label>
@@ -163,6 +163,7 @@
 #fs_controlbuttonfooterlayer { margin-right: 20px; margin-bottom:5px; margin-top: 10px; }
 #fs_controlbuttonfooterlayer button { margin-right: 5px; }
 #mailsecurelayer { margin-left: 35px; margin-top: 35px; }
+label.partition-label { margin-left: 5px; font-weight: bold; }
 </style>
 <script>
 import { ref, computed, watch } from 'vue';
